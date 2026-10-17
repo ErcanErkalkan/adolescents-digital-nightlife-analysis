@@ -1,0 +1,79 @@
+name: Import archived audited DSIS source
+on:
+  push:
+    paths:
+      - 'release/DSIS2026_65_FILES_VERIFIED_SOURCE.tar.xz'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  import-source:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Verify and extract source-only archive
+        run: |
+          python - <<'PY'
+          import hashlib, tarfile, pathlib
+          f=pathlib.Path('release/DSIS2026_65_FILES_VERIFIED_SOURCE.tar.xz')
+          expected='9d15b3c2700b522d564186cab1e5b456e9d6251b2335a8d37df5c9eff9aa6423'
+          assert hashlib.sha256(f.read_bytes()).hexdigest()==expected, 'Release hash mismatch'
+          with tarfile.open(f,'r:xz') as archive:
+              members=archive.getmembers()
+              assert len(members)==65, f'Expected 65 files, received {len(members)}'
+              for m in members:
+                  p=pathlib.PurePosixPath(m.name)
+                  assert m.isfile() and not p.is_absolute() and '..' not in p.parts
+                  assert not (str(p).startswith('data_raw/') and p.suffix.lower() in {'.csv','.json'})
+                  assert not (str(p).startswith('data_processed/') and p.suffix.lower() in {'.csv','.json','.parquet'})
+                  assert not str(p).startswith('outputs/')
+              archive.extractall('/tmp/dsis-source',filter='data')
+          print('Verified historical source archive; 65 safe files')
+          PY
+      - name: Import without overwriting GitHub evidence or introducing participant data
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import shutil
+          src=Path('/tmp/dsis-source')
+          target=Path('.')
+          copied=0; preserved=0
+          for f in sorted(src.rglob('*')):
+              if not f.is_file(): continue
+              relative=f.relative_to(src)
+              if relative.parts[0] in {'data_raw','data_processed','outputs'}: continue
+              if any(p in {'.git','__pycache__','.pytest_cache'} for p in relative.parts): continue
+              dest=target/relative
+              if dest.exists():
+                  preserved+=1
+                  continue
+              dest.parent.mkdir(parents=True,exist_ok=True)
+              shutil.copy2(f,dest)
+              copied+=1
+          print(f'Added {copied} historical files, preserved {preserved} existing files')
+          PY
+      - name: Verify complete public source tree
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          for name in ('src/run_analysis.py','src/inspect_and_prepare.py','run_all.py','analysis_config.json','tests/test_core.py'):
+              assert Path(name).is_file(), name
+          for name in ('data_raw','data_processed'):
+              root=Path(name)
+              if root.exists():
+                  assert not any(f.is_file() and f.suffix.lower() in {'.csv','.json','.parquet','.xlsx'} for f in root.rglob('*')), 'Participant data forbidden'
+          print('Source tree verified without participant-level data')
+          PY
+      - name: Commit complete audited source tree
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "All audited sources already imported"
+          else
+            git commit -m "Import clean historical reproducibility pipeline for DSIS2026"
+            git push origin HEAD:${{ github.ref_name }}
+          fi
