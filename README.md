@@ -11,7 +11,7 @@ Research reproducibility repository for the DSIS 2026 manuscript **When Smartpho
 - *New exploratory* reviewer-response checks: Gower + average-linkage agglomeration and robust-scaled k-means, 10 candidate fits and 200 subsamples per candidate; no candidate passed all gates. Detailed tables are in `dsis2026/EVIDENCE.md`.
 
 ## Reproduce
-The official CSV files are **not included** here. Obtain them from the source DOI, and use the exact version-2 files. The reconstruction code and reports must be verified together before claims are added to a manuscript. The original pipeline is being migrated from verified local archival sources; this repository does not yet contain the complete historical analysis pipeline.
+The official CSV files are **not included** here. Obtain them from the source DOI, and use the exact version-2 files. The reconstruction code and reports must be verified together before claims are added to a manuscript. The complete historical source-only analytical pipeline has now been imported under `src/`, `tests/`, `run_all.py`, and `analysis_config.json`. The original five Figshare v2 CSVs are deliberately not stored in GitHub. Full empirical reproduction therefore requires downloading the official data and running the pipeline locally.
 
 ## Integrity rules
 1. No synthetic test data as empirical evidence.
