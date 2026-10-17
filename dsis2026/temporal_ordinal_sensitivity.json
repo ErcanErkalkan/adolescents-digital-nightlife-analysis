@@ -1,0 +1,19 @@
+{
+  "analysis_type": "exploratory_posthoc",
+  "n": 1806,
+  "participants": 155,
+  "postbed_within_ar1_gaussian_gee": {
+    "converged": true,
+    "estimate": -0.05851796490483354,
+    "se": 0.03721697292069463,
+    "p": 0.11587029050133618,
+    "ci95": [-0.1314618914429975, 0.01442596163333041]
+  },
+  "postbed_within_ordinal_exchangeable_gee": {
+    "converged": true,
+    "estimate": -0.07330196402208951,
+    "se": 0.04657351712061303,
+    "p": 0.11551103946713955,
+    "ci95": [-0.16458438021185065, 0.017980452167671634]
+  }
+}
