@@ -14,7 +14,7 @@ The external CHIuXiD decision was a rejection. The provided screenshot shows *pa
 ## Reproduced prior PAM output (from archived September aggregate evidence)
 - Five prespecified candidate values k=2–6 were fitted.
 - Silhouettes range from 0.145 to 0.184; median subsample ARI from 0.205 to 0.443; no candidate passes size >=0.10, silhouette >=0.25 and ARI >=0.75 jointly.
-- Reproduction of the *full original fitting* still requires a new complete end-to-end run; archived outputs and identical source hashes alone are not a substitute.
+- A fresh complete original pipeline run on 17 October 2026 finished successfully with `quick_mode=false` and passed publication validation. The previous five PAM candidates and all reported model metrics reproduced numerically.
 
 ## NEW: post-hoc alternative clustering experiment (independently executed)
 - Methods: average-linkage agglomerative clustering on robust numeric Gower dissimilarity; k-means on median-imputed robust-scaled features.
@@ -29,9 +29,15 @@ The external CHIuXiD decision was a rejection. The provided screenshot shows *pa
 - After correction: 1,856 known dates/weekend flags, of which 399 weekend dates. Primary valid rows remain 1,806.
 - 76 Python tests passed after the missing original `data_raw/download_manifest.json` was restored. Source-code patch awaits migration to GitHub alongside the complete legacy baseline.
 
+## Independent full-run reconciliation
+- 17 October 2026: after isolating stale outputs, executed `python run_all.py --offline` with no quick or partial flags. Mandatory raw audit, preparation, model run, validation, and report generation all completed.
+- Publication validation status: PASSED. Expected counts and 5 PAM candidates confirmed.
+- Against archived September aggregate outputs, 7 tables were row-count/schema consistent and had exact same numeric values, max delta 0, including full grouped-CV fold performance and mixed-model coefficient outputs.
+- Local calendar-date repair did not change the model metrics.
+
 ## Still required before paper is final
 1. Migrate complete tested original pipeline to this GitHub repository, not only the reviewer-response script.
-2. Perform a fresh full **non-quick** run with run-specific outputs and fresh hash checks, verify archived claims (mixed models, outer-fold predictions), and compare results before editing numerical tables.
+2. **Completed locally:** clean-output non-quick run with original raw files; 7 aligned archival-vs-fresh output tables matched on all numeric values (maximum absolute numeric difference 0), covering cluster selections, 34 repeated-model coefficient rows, 30 predictive performance rows, 50 outer-fold rows, pairwise comparisons, sample flow, and quality summary. The complete run logs and code migration to GitHub still require archiving.
 3. Run sensitivity on lag/ordinal outcomes and serial correlation, or explicitly acknowledge the limitations without implying tests were done.
 4. Confirm article author order, exact DSIS submission rules, anonymization, bibliography, and coauthor approval.
 5. No claims about prospective prediction; the original machine-learning setting is post-night reconstruction.
