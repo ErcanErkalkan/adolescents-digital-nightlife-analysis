@@ -1,0 +1,22 @@
+{
+  "analysis_type": "exploratory_posthoc",
+  "same_estimation_sample": true,
+  "n": 1197,
+  "participants": 140,
+  "matched_unlagged": {
+    "estimate": -0.02937305614851953,
+    "ci_low": -0.08375528617625616,
+    "ci_high": 0.02500917387921709,
+    "p_value": 0.2897727422273,
+    "n_rows": 1197,
+    "n_participants": 140
+  },
+  "matched_lag_adjusted": {
+    "estimate": -0.031072291901472347,
+    "ci_low": -0.08580556566852768,
+    "ci_high": 0.02366098186558299,
+    "p_value": 0.2658462493176772,
+    "n_rows": 1197,
+    "n_participants": 140
+  }
+}
