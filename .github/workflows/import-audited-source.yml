@@ -43,7 +43,7 @@ jobs:
           for f in sorted(src.rglob('*')):
               if not f.is_file(): continue
               relative=f.relative_to(src)
-              if relative.parts[0] in {'data_raw','data_processed','outputs'}: continue
+              if relative.parts[0] in {'data_raw','data_processed','outputs','.github'}: continue
               if any(p in {'.git','__pycache__','.pytest_cache'} for p in relative.parts): continue
               dest=target/relative
               if dest.exists():
