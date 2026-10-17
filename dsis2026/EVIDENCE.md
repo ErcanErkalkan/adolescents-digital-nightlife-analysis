@@ -27,7 +27,7 @@ The external CHIuXiD decision was a rejection. The provided screenshot shows *pa
 - Old pipeline: calendar `date` and `is_weekend` missing in all 3,255 prepared rows despite 1,856 aligned `timeframe_date` values.
 - Fixed locally by deriving dates from exact matched `timeframe_date` **without** imputing missing dates or changing numeric study-day indexes.
 - After correction: 1,856 known dates/weekend flags, of which 399 weekend dates. Primary valid rows remain 1,806.
-- 76 Python tests passed after the missing original `data_raw/download_manifest.json` was restored. Source-code patch awaits migration to GitHub alongside the complete legacy baseline.
+- 76 Python tests passed after the missing original `data_raw/download_manifest.json` was restored. The source-only historical pipeline was imported into GitHub, including the tested date-alignment fix, and original data are not stored in the repository.
 
 ## Independent full-run reconciliation
 - 17 October 2026: after isolating stale outputs, executed `python run_all.py --offline` with no quick or partial flags. Mandatory raw audit, preparation, model run, validation, and report generation all completed.
@@ -42,8 +42,8 @@ The external CHIuXiD decision was a rejection. The provided screenshot shows *pa
 - These are observational, exploratory sensitivity analyses, not pre-registered. Full runnable scripts and numerical JSON are present in the `dsis2026/` folder.
 
 ## Still required before paper is final
-1. Migrate complete tested original pipeline to this GitHub repository, not only the reviewer-response script.
-2. **Completed locally:** clean-output non-quick run with original raw files; 7 aligned archival-vs-fresh output tables matched on all numeric values (maximum absolute numeric difference 0), covering cluster selections, 34 repeated-model coefficient rows, 30 predictive performance rows, 50 outer-fold rows, pairwise comparisons, sample flow, and quality summary. The complete run logs and code migration to GitHub still require archiving.
+1. **Completed:** Complete tested source-only pipeline migrated to GitHub. Independent public CI and local original-data verification are recorded separately.
+2. **Completed locally:** clean-output non-quick run with original raw files; 7 aligned archival-vs-fresh output tables matched on all numeric values (maximum absolute numeric difference 0), covering cluster selections, 34 repeated-model coefficient rows, 30 predictive performance rows, 50 outer-fold rows, pairwise comparisons, sample flow, and quality summary. The full sources are now in GitHub; detailed original-data execution logs remain in the separate local verification report and are not published with participant data.
 3. Matched-sample lag, AR(1) and ordinal checks have now been executed **post hoc**. Their results are reported below; mechanisms of selection/attrition and external cohort replication remain unresolved.
 4. Confirm article author order, exact DSIS submission rules, anonymization, bibliography, and coauthor approval.
 5. No claims about prospective prediction; the original machine-learning setting is post-night reconstruction.
