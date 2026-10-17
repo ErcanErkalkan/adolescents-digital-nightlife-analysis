@@ -1,0 +1,199 @@
+{
+  "article_id": 26395903,
+  "figshare_version": 2,
+  "dataset_doi": "10.21942/uva.26395903.v2",
+  "official_record_url": "https://uvaauas.figshare.com/articles/dataset/26395903",
+  "expected_file_stems": [
+    "phone",
+    "game",
+    "social",
+    "video",
+    "timeframes"
+  ],
+  "strict_expected_files": true,
+  "file_aliases": {
+    "phone": [
+      "phone"
+    ],
+    "game": [
+      "game",
+      "games"
+    ],
+    "social": [
+      "social",
+      "social_media",
+      "socialmedia"
+    ],
+    "video": [
+      "video",
+      "video_player",
+      "videoplayer"
+    ],
+    "timeframes": [
+      "timeframes",
+      "timeframe",
+      "sleep_timeframes"
+    ]
+  },
+  "missing_string_tokens": [
+    "",
+    "na",
+    "n/a",
+    "nan",
+    "null",
+    "none",
+    ".",
+    "*",
+    "missing"
+  ],
+  "missing_numeric_sentinels": [
+    -99999,
+    -9999,
+    -999,
+    -99
+  ],
+  "sleep_quality_min": 1,
+  "sleep_quality_max": 7,
+  "usage_unit": "hours",
+  "study_day_origin": "2020-06-02",
+  "column_overrides": {
+    "phone": {},
+    "game": {},
+    "social": {},
+    "video": {},
+    "timeframes": {
+      "day": "date_res",
+      "bedtime": "bt_yes",
+      "wakeup": "wt_today"
+    }
+  },
+  "aliases": {
+    "participant_id": [
+      "participant_id",
+      "participantid",
+      "participant",
+      "respondent_id",
+      "respondentid",
+      "respondent",
+      "subject_id",
+      "subjectid",
+      "subject",
+      "user_id",
+      "userid",
+      "pid",
+      "id"
+    ],
+    "day": [
+      "study_day",
+      "studyday",
+      "measurement_day",
+      "measurementday",
+      "day_number",
+      "daynumber",
+      "day_num",
+      "daynum",
+      "wave_day",
+      "esm_day",
+      "esmday",
+      "date",
+      "day"
+    ],
+    "sleep_quality": [
+      "sleep_quality",
+      "sleepquality",
+      "sleep_qual",
+      "sleepqual",
+      "quality_sleep",
+      "sleepq",
+      "sleep_q",
+      "sq",
+      "sleep"
+    ],
+    "daytime_use": [
+      "daytime_use",
+      "daytimeuse",
+      "daytime_phone",
+      "phone_daytime",
+      "phone_day",
+      "day_phone",
+      "dayuse",
+      "day_use",
+      "daytime"
+    ],
+    "prebed_use": [
+      "prebed_use",
+      "prebeduse",
+      "pre_bedtime_use",
+      "prebedtime_use",
+      "phone_prebed",
+      "phone_pre",
+      "pre_phone",
+      "before_bed",
+      "prebedtime",
+      "prebed"
+    ],
+    "postbed_use": [
+      "postbed_use",
+      "postbeduse",
+      "post_bedtime_use",
+      "postbedtime_use",
+      "phone_postbed",
+      "phone_post",
+      "post_phone",
+      "after_bed",
+      "postbedtime",
+      "postbed"
+    ],
+    "bedtime": [
+      "bedtime",
+      "bed_time",
+      "sleep_time",
+      "sleeptime",
+      "bed"
+    ],
+    "wakeup": [
+      "wakeup",
+      "wake_up",
+      "wake_time",
+      "waketime",
+      "rise_time",
+      "risetime",
+      "wake"
+    ]
+  },
+  "analysis": {
+    "cluster_k_min": 2,
+    "cluster_k_max": 6,
+    "min_cluster_fraction": 0.1,
+    "min_silhouette": 0.25,
+    "min_stability_ari": 0.75,
+    "stability_subsamples": 200,
+    "subsample_fraction": 0.8,
+    "gower_range_quantiles": [
+      0.05,
+      0.95
+    ],
+    "correlation_prune_threshold": 0.92,
+    "random_state": 42,
+    "group_cv_splits": 5,
+    "inner_cv_splits": 4,
+    "bootstrap_repetitions": 1000,
+    "max_window_hours": 24.0,
+    "max_total_use_hours": 24.0,
+    "min_valid_days_for_profile": 5,
+    "profile_missingness_max": 0.3,
+    "min_feature_coverage": 0.3,
+    "sleep_quality_as_continuous": true,
+    "prediction_evaluation_weightings": [
+      "participant_day",
+      "participant_equal"
+    ],
+    "primary_prediction_weighting": "participant_equal"
+  },
+  "reference_expectations": {
+    "participants": 155,
+    "sleep_assessments": 1950,
+    "tracked_app_activities": 745706,
+    "published_mean_total_use_hours_approx": 6.13
+  }
+}

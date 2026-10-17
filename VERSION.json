@@ -1,0 +1,15 @@
+{
+  "package": "Adolescents Digital Nightlife Secondary Analysis",
+  "version": "3.4.0",
+  "date": "2026-07-18",
+  "dataset_doi": "10.21942/uva.26395903.v2",
+  "article_doi": "10.1177/00936502241276793",
+  "status": "participant-day and participant-equal predictive estimands implemented; empirical results require a validated full analysis run",
+  "license_scope": "software: MIT; dataset and data-derived artifacts: CC BY 4.0",
+  "distribution_policy": "explicit allowlist; code-only by default; optional official-data-inclusive archive; no generated results or virtual environment in either archive",
+  "supported_python": [
+    "3.11",
+    "3.12",
+    "3.13"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "distribution_mode": "code-only",
+  "built_at_utc": "2026-10-17T10:04:24.192303+00:00",
+  "software_license": "MIT",
+  "dataset_license": "CC BY 4.0",
+  "dataset_doi": "10.21942/uva.26395903.v2",
+  "dataset_creators": [
+    "Teun Siebers",
+    "Ine Beyens",
+    "Susanne E. Baumgartner",
+    "Patti M. Valkenburg"
+  ],
+  "source_files": [],
+  "data_included": false,
+  "generated_results_included": false,
+  "processed_participant_data_included": false,
+  "virtual_environment_included": false,
+  "platform_specific_binaries_included": false,
+  "allowlist_file": "DISTRIBUTION_ALLOWLIST.json",
+  "copied_source_file_count": 64,
+  "revision_purpose": "DSIS2026 independent reviewer response source-only snapshot"
+}

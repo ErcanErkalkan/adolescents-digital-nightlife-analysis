@@ -1,0 +1,14 @@
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+Official license URI:
+https://creativecommons.org/licenses/by/4.0/
+
+Official legal code:
+https://creativecommons.org/licenses/by/4.0/legalcode
+
+The license permits sharing and adaptation for any purpose, provided appropriate
+credit is given, a link to the license is supplied, and changes are indicated.
+No additional legal or technological restrictions may be applied to the licensed
+material. No endorsement is implied.
+
+This notice is not a substitute for the official legal code.

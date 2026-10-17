@@ -1,0 +1,14 @@
+[project]
+name = "adolescents-digital-nightlife-analysis"
+version = "3.4.0"
+description = "Reproducible secondary analysis of adolescent smartphone-use timing and sleep quality"
+requires-python = ">=3.11,<3.14"
+license = {text = "MIT"}
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"

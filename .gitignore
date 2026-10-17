@@ -1,0 +1,70 @@
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Python caches and build products
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+*.egg-info/
+.tox/
+.nox/
+
+# Generated analysis artifacts
+outputs/*
+!outputs/figures/
+!outputs/logs/
+!outputs/models/
+!outputs/tables/
+!outputs/figures/.gitkeep
+!outputs/logs/.gitkeep
+!outputs/models/.gitkeep
+!outputs/tables/.gitkeep
+data_processed/*
+!data_processed/.gitkeep
+run_history/
+
+# Source data are not committed by default
+# The five official CSVs may be packaged only by the explicit data-inclusive builder.
+data_raw/*.csv
+data_raw/download_manifest.json
+!data_raw/.gitkeep
+
+# Secrets and local configuration
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+secrets.*
+credentials.*
+
+# IDE and OS files
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# LaTeX auxiliary files
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc

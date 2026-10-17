@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+title: "Adolescents’ Digital Nightlife Secondary Analysis Pipeline"
+message: "Please cite this software package and the original dataset/article."
+type: software
+version: 3.4.0
+date-released: 2026-07-18
+license: MIT
+identifiers:
+  - type: doi
+    value: 10.21942/uva.26395903.v2
+    description: Source dataset DOI
+references:
+  - type: dataset
+    title: "Dataset belonging to Siebers et al. (2024), Adolescents’ digital nightlife"
+    doi: 10.21942/uva.26395903.v2
+  - type: article
+    title: "Adolescents’ digital nightlife: The comparative effects of day- and nighttime smartphone use on sleep quality"
+    doi: 10.1177/00936502241276793
+
+notes: "The MIT license applies to the software only. The referenced dataset and data-derived artifacts are governed by CC BY 4.0 and require separate attribution."
