@@ -88,12 +88,10 @@ def evaluate(profiles,output,resamples=200):
             sil=float(silhouette_score(d,full,metric='precomputed'))
             frac=float(np.bincount(full).min()/len(full))
             med=float(np.median(aris))
-            rows.append({'method':method,'k':k,'n':len(full),'n_features':len(FEATURES),
-                         'silhouette_gower':sil,'minimum_cluster_fraction':frac,
+            rows.append({'method':method,'k':k,'n':len(full),'features':len(FEATURES),
+                         'silhouette_gower':sil,'min_cluster_fraction':frac,
                          'median_subsample_ari':med,
-                         'ari_q10':float(np.quantile(aris,.1)),
-                         'ari_q90':float(np.quantile(aris,.9)),
-                         'passes_all_original_gates':bool(frac>=.1 and sil>=.25 and med>=.75),
+                         'passes_joint_gate':bool(frac>=.1 and sil>=.25 and med>=.75),
                          'subsample_repetitions':resamples,
                          'analysis_type':'exploratory_posthoc'})
     result=pd.DataFrame(rows)
@@ -101,7 +99,7 @@ def evaluate(profiles,output,resamples=200):
     output.parent.mkdir(parents=True,exist_ok=True)
     result.to_csv(output,index=False)
     print(json.dumps({'candidates':len(result),
-                      'passed_all_gates':int(result.passes_all_original_gates.sum()),
+                      'passed_all_gates':int(result.passes_joint_gate.sum()),
                       'output':str(output)}))
     return result
 
