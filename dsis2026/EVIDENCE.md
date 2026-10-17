@@ -35,9 +35,15 @@ The external CHIuXiD decision was a rejection. The provided screenshot shows *pa
 - Against archived September aggregate outputs, 7 tables were row-count/schema consistent and had exact same numeric values, max delta 0, including full grouped-CV fold performance and mixed-model coefficient outputs.
 - Local calendar-date repair did not change the model metrics.
 
+## Additional post-hoc inference audit
+- Same 1,806-row (155 participant) sample, Gaussian GEE with AR(1) working correlation: within-person post-bed coefficient **-0.058518**, 95% CI **[-0.131462, 0.014426]**, p = **0.115870**.
+- Same sample, proportional-odds ordinal GEE with participant exchangeable working correlation: within-person post-bed log-odds coefficient **-0.073302**, 95% CI **[-0.164584, 0.017980]**, p = **0.115511**. Do not compare ordinal log odds to the linear coefficient in magnitude.
+- Matching **1,197 rows (140 participants)** for the exact preceding-day model: **without** the lag covariate, the within-person post-bed coefficient was **-0.029373** (95% CI **[-0.083755, 0.025009]**); **with** lag adjustment on the same 1,197 rows it was **-0.031072** (95% CI **[-0.085806, 0.023661]**). The apparent attenuation from the full 1,806-row primary estimate (-0.054) is largely associated with subset restriction, not isolated lag adjustment. Mechanisms of selection remain uncertain.
+- These are observational, exploratory sensitivity analyses, not pre-registered. Full runnable scripts and numerical JSON are present in the `dsis2026/` folder.
+
 ## Still required before paper is final
 1. Migrate complete tested original pipeline to this GitHub repository, not only the reviewer-response script.
 2. **Completed locally:** clean-output non-quick run with original raw files; 7 aligned archival-vs-fresh output tables matched on all numeric values (maximum absolute numeric difference 0), covering cluster selections, 34 repeated-model coefficient rows, 30 predictive performance rows, 50 outer-fold rows, pairwise comparisons, sample flow, and quality summary. The complete run logs and code migration to GitHub still require archiving.
-3. Run sensitivity on lag/ordinal outcomes and serial correlation, or explicitly acknowledge the limitations without implying tests were done.
+3. Matched-sample lag, AR(1) and ordinal checks have now been executed **post hoc**. Their results are reported below; mechanisms of selection/attrition and external cohort replication remain unresolved.
 4. Confirm article author order, exact DSIS submission rules, anonymization, bibliography, and coauthor approval.
 5. No claims about prospective prediction; the original machine-learning setting is post-night reconstruction.
