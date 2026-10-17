@@ -3,7 +3,7 @@
   "description": "Explicit release allowlist. Files not matched here are never copied into a distribution archive.",
   "common_patterns": [
     ".gitattributes",
-    ".github/workflows/ci.yml",
+    ".github/workflows/public-evidence.yml",
     ".gitignore",
     "CHANGELOG.md",
     "CHANGELOG_FULL_PAPER.md",
