@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - 'release/DSIS2026_65_FILES_VERIFIED_SOURCE.tar.xz'
+      - '.github/workflows/import-audited-source.yml'
   workflow_dispatch:
 permissions:
   contents: write
