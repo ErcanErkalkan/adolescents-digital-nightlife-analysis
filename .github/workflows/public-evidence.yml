@@ -14,8 +14,10 @@ jobs:
         with:
           python-version: "3.11"
       - name: Install public analytical dependencies
-        run: python -m pip install --disable-pip-version-check -r dsis2026/requirements.txt
+        run: python -m pip install --disable-pip-version-check -r requirements.txt
       - name: Check script syntax
-        run: python -m compileall -q dsis2026
+        run: python -m compileall -q dsis2026 src tests run_all.py
       - name: Validate reported evidence without raw participant data
         run: python dsis2026/validate_public_evidence.py
+      - name: Test full public source tree (data-dependent tests skip by design)
+        run: python -m pytest -q
